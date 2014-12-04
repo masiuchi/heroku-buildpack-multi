@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-if [ -f $1/.buildpacks ]; then
-  echo "Multipack"
+if [ -f $1/mt.psgi ]; then
+  echo "Movable Type"
   exit 0
 else
-  echo "no .buildpacks file"
+  echo "no mt.psgi file"
   exit 1
 fi

@@ -12,7 +12,9 @@ function indent() {
 
 unset GIT_DIR
 
-for BUILDPACK in $(cat $1/.buildpacks); do
+BP_DIR=$(cd $(dirname $0); cd ..; pwd)
+
+for BUILDPACK in $(cat $BP_DIR/bin/.buildpacks); do
   dir=$(mktemp -t buildpackXXXXX)
   rm -rf $dir
 
@@ -43,7 +45,7 @@ for BUILDPACK in $(cat $1/.buildpacks); do
 
     framework=$($dir/bin/detect $1)
 
-    if [ $? == 0 ]; then
+#    if [ $? == 0 ]; then
       echo "=====> Detected Framework: $framework"
       $dir/bin/compile $1 $2 $3
 
@@ -59,7 +61,7 @@ for BUILDPACK in $(cat $1/.buildpacks); do
       if [ -x $dir/bin/release ]; then
         $dir/bin/release $1 > $1/last_pack_release.out
       fi
-    fi
+#    fi
   fi
 done
 
