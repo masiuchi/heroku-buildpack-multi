@@ -1,2 +1,8 @@
 requires 'DBI';
 requires 'DBD::Pg';
+
+requires 'Plack';
+requires 'CGI::PSGI';
+requires 'CGI::Emulate::PSGI';
+requires 'CGI::Compile';
+requires 'XMLRPC::Transport::HTTP::Plack';
