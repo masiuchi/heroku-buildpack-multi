@@ -13,6 +13,7 @@ function indent() {
 unset GIT_DIR
 
 BP_DIR=$(cd $(dirname $0); cd ..; pwd)
+cp $BP_DIR/conf/* $1
 
 for BUILDPACK in $(cat $BP_DIR/bin/.buildpacks); do
   dir=$(mktemp -t buildpackXXXXX)
@@ -42,10 +43,6 @@ for BUILDPACK in $(cat $BP_DIR/bin/.buildpacks); do
 
     # we'll get errors later if these are needed and don't exist
     chmod -f +x $dir/bin/{detect,compile,release} || true
-
-    if [[ "$url" =~ perl ]]; then
-      cp $BP_DIR/conf/perl/cpanfile $1/
-    fi
 
 #    framework=$($dir/bin/detect $1)
 
