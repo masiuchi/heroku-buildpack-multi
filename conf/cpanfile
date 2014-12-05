@@ -1,5 +1,6 @@
 requires 'DBI';
 requires 'DBD::Pg';
+requires 'Imager';
 
 requires 'Plack';
 requires 'CGI::PSGI';
