@@ -44,7 +44,7 @@ for BUILDPACK in $(cat $BP_DIR/bin/.buildpacks); do
     chmod -f +x $dir/bin/{detect,compile,release} || true
 
     if [[ "$url" =~ perl ]]; then
-      cp -r $BP_DIR/conf/perl/* $dir
+      cp $BP_DIR/conf/perl/cpanfile $1/
     fi
 
 #    framework=$($dir/bin/detect $1)
