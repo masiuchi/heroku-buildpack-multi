@@ -43,6 +43,10 @@ for BUILDPACK in $(cat $BP_DIR/bin/.buildpacks); do
     # we'll get errors later if these are needed and don't exist
     chmod -f +x $dir/bin/{detect,compile,release} || true
 
+    if [[ "$url" =~ perl ]]; then
+      cp -r $BP_DIR/conf/perl/* $dir
+    fi
+
 #    framework=$($dir/bin/detect $1)
 
 #    if [ $? == 0 ]; then
