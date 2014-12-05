@@ -28,6 +28,8 @@ export_env_dir() {
   fi
 }
 
+export
+
 if [[ "$DATABASE_URL" =~ ^postgres://([^:@/]+):([^:@/]+)@([^:@/]+):([^:@/]+)/([^:@/]+)$ ]]; then
   dbuser=${BASH_REMATCH[1]}
   dbpass=${BASH_REMATCH[2]}
