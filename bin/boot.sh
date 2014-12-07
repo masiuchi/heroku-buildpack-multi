@@ -9,8 +9,8 @@ if [[ "$DATABASE_URL" =~ ^postgres://([^:@/]+):([^:@/]+)@([^:@/]+):([^:@/]+)/([^
 fi
 
 cat << _CONFIG_ > /app/mt-config.cgi
-CGIPath /
-StaticWebPath /mt-static
+CGIPath /mt
+StaticWebPath /mt/mt-static
 StaticFilePath /app/mt-static
 
 ObjectDriver DBI::postgres
@@ -24,3 +24,5 @@ DefaultLanguage ja
 
 ImageDriver Imager
 _CONFIG_
+
+starman mt.psgi
