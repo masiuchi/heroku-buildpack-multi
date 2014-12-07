@@ -9,7 +9,7 @@ if [[ "$DATABASE_URL" =~ ^postgres://([^:@/]+):([^:@/]+)@([^:@/]+):([^:@/]+)/([^
 fi
 
 cat << _CONFIG_ > /app/mt-config.cgi
-CGIPath /mt
+CGIPath /mt/
 StaticWebPath /mt/mt-static
 StaticFilePath /app/mt-static
 
