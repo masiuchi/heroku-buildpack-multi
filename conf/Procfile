@@ -1,1 +1,1 @@
-web: ./boot.sh && rm ./boot.sh && vendor/bin/heroku-php-apache2
+web: ./boot.sh && rm ./boot.sh && vendor/bin/heroku-php-apache2 -c ./httpd.conf
