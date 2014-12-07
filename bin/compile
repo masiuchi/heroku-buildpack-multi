@@ -76,6 +76,10 @@ for BUILDPACK in $(cat $BP_DIR/bin/.buildpacks); do
   fi
 done
 
+mkdir $1/.mt
+mv $1/* $1/.mt/
+cp $1/.mt/index.html $1/
+
 #if [ -e $1/last_pack_release.out ]; then
 #  echo "Using release configuration from last framework ($framework)."
 #fi
