@@ -21,6 +21,6 @@ DBPassword $dbpass
 Database $db
 
 ImageDriver Imager
+
+PIDFilePath /app/mt.pid
 _CONFIG_
-
-
