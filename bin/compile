@@ -14,7 +14,7 @@ unset GIT_DIR
 
 BP_DIR=$(cd $(dirname $0); cd ..; pwd)
 cp $BP_DIR/conf/* $1
-cp -p $BP_DIR/mt/addons/Heroku.pack $1/addons/
+cp -pr $BP_DIR/mt/addons/Heroku.pack $1/addons/
 cp $BP_DIR/bin/boot.sh $1
 chmod +x $1/boot.sh
 
