@@ -10,7 +10,7 @@ fi
 
 cat << _CONFIG_ > /app/mt-config.cgi
 CGIPath /mt/
-StaticWebPath /mt/mt-static
+StaticWebPath /mt-static
 StaticFilePath /app/mt-static
 
 ObjectDriver DBI::postgres

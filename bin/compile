@@ -17,7 +17,7 @@ cp $BP_DIR/conf/* $1
 cp -pr $BP_DIR/mt/addons/Heroku.pack $1/addons/
 cp $BP_DIR/bin/boot.sh $1
 chmod +x $1/boot.sh
-chmod +w $1/mt-static/support
+mkdir $1/html
 
 for BUILDPACK in $(cat $BP_DIR/bin/.buildpacks); do
   dir=$(mktemp -t buildpackXXXXX)
