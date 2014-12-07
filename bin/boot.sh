@@ -25,4 +25,4 @@ DefaultLanguage ja
 ImageDriver Imager
 _CONFIG_
 
-starman mt.psgi
+
