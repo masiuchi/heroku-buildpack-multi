@@ -20,8 +20,6 @@ DBUser $dbuser
 DBPassword $dbpass
 Database $db
 
-DefaultLanguage ja
-
 ImageDriver Imager
 _CONFIG_
 
