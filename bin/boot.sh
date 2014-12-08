@@ -2,9 +2,13 @@
 
 if [ $MT_ZIP_URL ]; then
   curl $MT_ZIP_URL
-  mt_zip=${MT_ZIP_URL##*/}
+  zip=${MT_ZIP_URL##*/}
+  filename=${zip%.*}
   if [ -f $mt_zip ]; then
     unzip $mt_zip
+  fi
+  if [ -d filename ]; then
+    cp -r filename/* ./
   fi
 fi
 
