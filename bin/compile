@@ -20,8 +20,8 @@ mv $1/* $1/.mt/
 cp $BP_DIR/conf/* $1
 cp -pr $BP_DIR/mt/addons/Heroku.pack $1/addons/
 
-cp $BP_DIR/bin/boot.sh $1
-chmod +x $1/boot.sh
+cp $BP_DIR/bin/*.sh $1
+chmod +x $1/*.sh
 
 mkdir $1/html
 cp $1/.mt/index.html $1/html/

@@ -6,7 +6,7 @@ else
   mv ./.mt/* ./
 fi
 
-bash generate-mt-config.sh
+./generate-mt-config.sh
 
 perl -Mlib=./local/lib/perl5 ./local/bin/starman --pid ./mt.pid ./mt.psgi &
 
