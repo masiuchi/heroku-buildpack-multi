@@ -2,11 +2,13 @@
 
 if [ $MT_ZIP_URL ]; then
   curl -O $MT_ZIP_URL
+
   zip=${MT_ZIP_URL##*/}
-  filename=${zip%.*}
-  if [ -f $mt_zip ]; then
-    unzip $mt_zip
+  if [ -f $zip ]; then
+    unzip $zip
   fi
+
+  filename=${zip%.*}
   if [ -d filename ]; then
     cp -r filename/* ./
   fi
@@ -20,10 +22,12 @@ if [ ! -f mt-config.cgi ]; then
   ./generate-mt-config.sh
 fi
 
-mkdir html
-cp index.html html/
-sed -i -e "s/mt\.cgi/\/mt\/mt\.cgi/g" html/index.html
-sed -i -e "s/mt-check\.cgi/\/mt\/mt-check\.cgi/g" html/index.html
+if [ -f index.html ]; then
+  mkdir html
+  cp index.html html/
+  sed -i -e "s/mt\.cgi/\/mt\/mt\.cgi/g" html/index.html
+  sed -i -e "s/mt-check\.cgi/\/mt\/mt-check\.cgi/g" html/index.html
+fi
 
 perl -Mlib=./local/lib/perl5 ./local/bin/starman --pid ./mt.pid ./mt.psgi &
 
