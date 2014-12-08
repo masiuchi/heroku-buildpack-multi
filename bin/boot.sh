@@ -8,10 +8,10 @@ if [[ "$DATABASE_URL" =~ ^postgres://([^:@/]+):([^:@/]+)@([^:@/]+):([^:@/]+)/([^
   db=${BASH_REMATCH[5]}
 fi
 
-cat << _CONFIG_ > /app/.mt/mt-config.cgi
+cat << _CONFIG_ > /app/mt-config.cgi
 CGIPath /mt/
 StaticWebPath /mt-static
-StaticFilePath /app/.mt/mt-static
+StaticFilePath /app/mt-static
 
 ObjectDriver DBI::postgres
 DBHost $dbhost
@@ -22,5 +22,5 @@ Database $db
 
 ImageDriver Imager
 
-PIDFilePath /app/.mt/mt.pid
+PIDFilePath /app/mt.pid
 _CONFIG_
