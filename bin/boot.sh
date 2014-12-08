@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ $MT_ZIP_URL ]; then
-  curl $MT_ZIP_URL
+  curl -O $MT_ZIP_URL
   zip=${MT_ZIP_URL##*/}
   filename=${zip%.*}
   if [ -f $mt_zip ]; then
