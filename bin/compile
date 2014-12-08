@@ -25,8 +25,10 @@ cp $BP_DIR/bin/*.sh $1
 chmod +x $1/*.sh
 
 if [ ! -d $1/local ]; then
-  tar xzf "$BP_DIR/perl/local.tar.gz" -C "$1"
+  tar xzvf $BP_DIR/perl/local.tar.gz -C $1
 fi
+
+ls $1/local
 
 for BUILDPACK in $(cat $BP_DIR/bin/.buildpacks); do
   dir=$(mktemp -t buildpackXXXXX)
