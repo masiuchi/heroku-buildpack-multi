@@ -24,11 +24,6 @@ cp $BP_DIR/mt/addons/Heroku.pack/config.yaml $1/addons/Heroku.pack/
 cp $BP_DIR/bin/*.sh $1
 chmod +x $1/*.sh
 
-mkdir $1/html
-cp $1/.mt/index.html $1/html/
-sed -i -e "s/mt\.cgi/\/mt\/mt\.cgi/g" $1/html/index.html
-sed -i -e "s/mt-check\.cgi/\/mt\/mt-check\.cgi/g" $1/html/index.html
-
 for BUILDPACK in $(cat $BP_DIR/bin/.buildpacks); do
   dir=$(mktemp -t buildpackXXXXX)
   rm -rf $dir
