@@ -1,1 +1,1 @@
-web: ./.mt/boot.sh && perl -Mlib=.mt/local/lib/perl5 .mt/local/bin/starman --pid .mt/mt.pid .mt/mt.psgi & .mt/vendor/bin/heroku-php-apache2 -c .mt/httpd.conf
+web: ./.mt/boot.sh && perl -Mlib=.mt/local/lib/perl5 .mt/local/bin/starman --pid .mt/mt.pid .mt/mt.psgi & vendor/bin/heroku-php-apache2 -c .mt/httpd.conf
