@@ -22,5 +22,7 @@ Database $db
 
 ImageDriver Imager
 
+BaseSitePath /app/html
+
 PIDFilePath /app/mt.pid
 _CONFIG_
