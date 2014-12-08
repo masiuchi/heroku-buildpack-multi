@@ -31,5 +31,6 @@ if [ -f index.html ]; then
 fi
 
 perl -Mlib=./local/lib/perl5 ./local/bin/starman --pid ./mt.pid ./mt.psgi &
+perl -Mlib=./local/lib/perl5 ./tools/run-periodic-tasks -d &
 
 vendor/bin/heroku-php-apache2 -c ./httpd.conf
