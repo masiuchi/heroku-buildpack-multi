@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 
-if [ $MT_ZIP ]; then
-  curl $MT_ZIP
-else
+if [ $mt_zip_url ]; then
+  curl $mt_zip_url
+  mt_zip=${mt_zip_url##*/}
+  if [ -f $mt_zip ]; then
+    unzip $mt_zip
+  fi
+fi
+
+if [[ ! -f mt.psgi || ! -f mt.cgi ]]; then
   cp -r ./.mt/* ./
 fi
 
-./generate-mt-config.sh
+if [ ! -f mt-config.cgi ]; then
+  ./generate-mt-config.sh
+fi
 
 perl -Mlib=./local/lib/perl5 ./local/bin/starman --pid ./mt.pid ./mt.psgi &
 
