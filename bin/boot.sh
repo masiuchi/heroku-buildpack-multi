@@ -9,8 +9,9 @@ if [ $MT_ZIP_URL ]; then
   fi
 
   filename=${zip%.*}
-  if [ -d filename ]; then
-    cp -r filename/* ./
+  filename=${filename//_/.}
+  if [ -d $filename ]; then
+    cp -r $filename/* ./
   fi
 fi
 
