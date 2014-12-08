@@ -3,7 +3,7 @@
 if [ $MT_ZIP ]; then
   curl $MT_ZIP
 else
-  mv ./mt/* ./
+  mv ./.mt/* ./
 fi
 
 bash generate-mt-config.sh
