@@ -14,8 +14,8 @@ unset GIT_DIR
 
 BP_DIR=$(cd $(dirname $0); cd ..; pwd)
 
-mkdir .mt
-mv * .mt/
+mkdir $1/.mt
+mv $1/* $1/.mt/
 
 cp $BP_DIR/conf/* $1
 cp -pr $BP_DIR/mt/addons/Heroku.pack $1/addons/
