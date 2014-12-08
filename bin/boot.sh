@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-if [ $mt_zip_url ]; then
-  curl $mt_zip_url
-  mt_zip=${mt_zip_url##*/}
+if [ $MT_ZIP_URL ]; then
+  curl $MT_ZIP_URL
+  mt_zip=${MT_ZIP_URL##*/}
   if [ -f $mt_zip ]; then
     unzip $mt_zip
   fi
