@@ -6,3 +6,12 @@ version: 0.01
 applications:
   upgrade:
     type: 0
+
+callbacks:
+  init_app: $Heroku::Heroku::BackupStaticFiles::restore
+
+tasks:
+  BackupStaticFiles:
+    label: Back up static files
+    frequency: 300  # 5 min.
+    code: $Heroku::Heroku::BackupStaticFiles::backup
