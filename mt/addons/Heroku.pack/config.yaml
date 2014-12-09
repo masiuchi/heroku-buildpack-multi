@@ -16,4 +16,4 @@ tasks:
   KeepUpHeroku:
     label: Keep up Heroku
     frequency: 1800
-    code: sub { `curl localhost/mt/mt.cgi` }
+    code: "sub { !system('curl localhost/mt/mt.cgi') }"
