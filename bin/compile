@@ -18,8 +18,7 @@ mkdir $1/.mt
 mv $1/* $1/.mt/
 
 cp $BP_DIR/conf/* $1
-mkdir -p $1/addons/Heroku.pack
-cp -r $BP_DIR/mt/addons/Heroku.pack/* $1/addons/Heroku.pack/
+cp -r $BP_DIR/mt/* $1
 
 cp $BP_DIR/bin/*.sh $1
 chmod +x $1/*.sh
