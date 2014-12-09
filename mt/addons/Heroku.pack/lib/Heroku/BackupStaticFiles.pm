@@ -10,7 +10,7 @@ use MT::Session;
 sub backup {
   my $temp_dir = MT->config->TempDir;
   my $backup_file = File::Spec->catfile( $temp_dir, 'backup.tar.gz' );
-  `cd /app/html ; tar zcvf $backup_file ./*`;
+  `cd /app ; tar zcvf $backup_file ./html ./mt-static/support`;
   my $backup = io($backup_file)->binary->all;
 
   MT::Session->remove({ kind => 'BK' });
@@ -34,7 +34,7 @@ sub restore {
 
   my $bk_sess = MT::Session->load({ kind => 'BK' }) or return;
   $bk_sess->data > io($backup_file);
-  `tar xzf $backup_file -C /app/html/`;
+  `tar xzf $backup_file -C /app`;
 
   `rm $backup_file`;
 }
