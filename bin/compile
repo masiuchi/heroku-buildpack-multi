@@ -24,11 +24,10 @@ cp $BP_DIR/mt/addons/Heroku.pack/config.yaml $1/addons/Heroku.pack/
 cp $BP_DIR/bin/*.sh $1
 chmod +x $1/*.sh
 
-if [ ! -d $1/local ]; then
-  tar xzvf $BP_DIR/perl/local.tar.gz -C $1
+if [ ! -d $2/local ]; then
+  echo "=====> Extrating CPAN modules."
+  tar xzf $BP_DIR/perl/local.tar.gz -C $2
 fi
-
-ls $1/local
 
 for BUILDPACK in $(cat $BP_DIR/bin/.buildpacks); do
   dir=$(mktemp -t buildpackXXXXX)
