@@ -1,0 +1,12 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+use FindBin;
+use lib ("$FindBin::Bin/../lib", "$FindBin::Bin/../extlib", "$FindBin::Bin/../addons/Heroku.pack/lib");
+
+use MT;
+use Heroku::BackupStaticFiles;
+
+MT->new or die MT->errstr;
+Heroku::BackupStaticFiles->restore;

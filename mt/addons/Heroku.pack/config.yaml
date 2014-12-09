@@ -7,10 +7,6 @@ applications:
   upgrade:
     type: 0
 
-  cms:
-    callbacks:
-      init_app: $Heroku::Heroku::BackupStaticFiles::restore
-
 tasks:
   BackupStaticFiles:
     label: Back up static files

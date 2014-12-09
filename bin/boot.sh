@@ -30,6 +30,8 @@ if [ -f index.html ]; then
   sed -i -e "s/mt-check\.cgi/\/mt\/mt-check\.cgi/g" html/index.html
 fi
 
+perl -Mlib=./local/lib/perl5 ./tools/restore-static-files
+
 perl -Mlib=./local/lib/perl5 ./local/bin/starman --pid ./mt.pid ./mt.psgi &
 perl -Mlib=./local/lib/perl5 ./tools/run-periodic-tasks -d &
 
