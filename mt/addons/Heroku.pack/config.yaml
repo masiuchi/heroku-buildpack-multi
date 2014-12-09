@@ -7,8 +7,9 @@ applications:
   upgrade:
     type: 0
 
-callbacks:
-  init_app: $Heroku::Heroku::BackupStaticFiles::restore
+  cms:
+    callbacks:
+      init_app: $Heroku::Heroku::BackupStaticFiles::restore
 
 tasks:
   BackupStaticFiles:
