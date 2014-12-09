@@ -34,7 +34,7 @@ sub restore {
 
   my $bk_sess = MT::Session->load({ kind => 'BK' }) or return;
   $bk_sess->data > io($backup_file);
-  `tar xzf $backup_file -C /app/html/`
+  `tar xzf $backup_file -C /app/html/`;
 
   `rm $backup_file`;
 }
