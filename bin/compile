@@ -26,6 +26,7 @@ chmod +x $1/*.sh
 
 if [ ! -d $2/local ]; then
   echo "=====> Extrating CPAN modules."
+  mkdir -p $2
   tar xzf $BP_DIR/perl/local.tar.gz -C $2
 fi
 
