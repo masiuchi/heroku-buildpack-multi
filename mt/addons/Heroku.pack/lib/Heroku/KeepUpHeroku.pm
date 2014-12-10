@@ -9,13 +9,12 @@ sub keep_up {
         or return;
 
     my ($url) = $site->site_url =~ m{^(https?://(?:[^/]+))};
-    my $path = MT->config->AdminCGIPath;
+    my $path = MT->config->CGIPath;
     $path =~ s/^\/|\/$//g;
-    $url = join '/', ( $url, $path, MT->config->AdminScript );
+    $url = join '/', ( $url, $path, 'mt-keeup-up-heroku.cgi' );
 
-MT->log( $url );
-
-    `curl $url`;
+    my $ret = `curl $url`;
+    return $ret =~ m/Not Found/;
 }
 
 1;
