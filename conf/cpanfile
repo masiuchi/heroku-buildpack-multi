@@ -10,4 +10,3 @@ requires 'XMLRPC::Transport::HTTP::Plack';
 
 # Heroku.pack
 requires 'IO::All';
-requires 'URI::Split';
