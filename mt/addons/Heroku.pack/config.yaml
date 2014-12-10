@@ -16,4 +16,4 @@ tasks:
   KeepUpHeroku:
     label: Keep up Heroku
     frequency: 1800
-    code: "sub { !system('curl localhost/mt/mt.cgi') }"
+    code: $Heroku::Heroku::KeepUpHeroku::keep_up
