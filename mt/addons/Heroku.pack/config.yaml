@@ -12,3 +12,8 @@ tasks:
     label: Back up static files
     frequency: 300
     code: $Heroku::Heroku::BackupStaticFiles::backup
+
+  KeepUpHeroku:
+    label: Keep up Heroku
+    frequency: 900
+    code: $Heroku::Heroku::KeepUpHeroku::keep_up
