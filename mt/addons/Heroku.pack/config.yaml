@@ -15,5 +15,5 @@ tasks:
 
   KeepUpHeroku:
     label: Keep up Heroku
-    frequency: 1800
+    frequency: 1
     code: $Heroku::Heroku::KeepUpHeroku::keep_up

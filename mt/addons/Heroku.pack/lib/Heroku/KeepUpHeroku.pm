@@ -17,7 +17,9 @@ sub keep_up {
         MT->config->AdminScript,
     );
 
-MT->log( $url );
+MT->log( 'AdminCGIPath: '. MT->config->AdminCGIPath );
+MT->log( 'AdminScript: ' . MT->config->AdminScript );
+MT->log( 'url: ' . $url );
 
     `curl $url`;
 }
