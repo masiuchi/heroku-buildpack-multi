@@ -15,7 +15,7 @@ if [ $MT_ZIP_URL ]; then
   fi
 fi
 
-if [[ ! -f mt.psgi || ! -f mt.cgi ]]; then
+if [[ ! -f mt.psgi || ! -f mt.cgi || ! -f .mt/mt.cgi ]]; then
   cp -r ./.mt/* ./
 fi
 
