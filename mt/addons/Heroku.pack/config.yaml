@@ -7,6 +7,9 @@ applications:
   upgrade:
     type: 0
 
+callbacks:
+  init_app: $Heroku::Heroku::StopTaskLog::override
+
 tasks:
   BackupStaticFiles:
     label: Back up static files
