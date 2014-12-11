@@ -20,6 +20,3 @@ tasks:
     label: Keep up Heroku
     frequency: 900
     code: $Heroku::Heroku::KeepUpHeroku::keep_up
-
-plack_middlwares:
-  - name: ReverseProxy
