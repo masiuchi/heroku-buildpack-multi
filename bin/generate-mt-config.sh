@@ -25,4 +25,6 @@ ImageDriver Imager
 BaseSitePath /app/html
 
 PIDFilePath /app/mt.pid
+
+TransparentProxyIPs 1
 _CONFIG_
