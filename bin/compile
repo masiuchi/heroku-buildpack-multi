@@ -14,7 +14,8 @@ unset GIT_DIR
 
 BP_DIR=$(cd $(dirname $0); cd ..; pwd)
 
-if [[ ! "$(cat $1/mt.psgi)" =~ "Six Apart" ]]; then
+# Remove dummy mt.psgi.
+if [[ -f $1/mt.psgi && ! "$(cat $1/mt.psgi)" =~ "Six Apart" ]]; then
   rm $1/mt.psgi
 fi
 
