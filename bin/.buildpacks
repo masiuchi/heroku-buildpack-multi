@@ -1,2 +1,2 @@
-https://github.com/heroku/heroku-buildpack-php.git
+https://github.com/masiuchi/heroku-buildpack-php.git#mt
 https://github.com/miyagawa/heroku-buildpack-perl.git
