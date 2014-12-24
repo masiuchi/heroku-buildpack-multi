@@ -1,7 +1,5 @@
 {
   "require": {
-    "php": "~5.4.36",
-    "ext-gd": "*",
-    "ext-mbstring": "*" 
+    "php": "~5.4.36"
   }
 }
