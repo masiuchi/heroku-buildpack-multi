@@ -19,6 +19,8 @@ if [[ ! -f mt.psgi || ! -f mt.cgi || ! -f .mt/mt.cgi ]]; then
   cp -r ./.mt/* ./
 fi
 
+sed -i -e "s/sub need_encode { 1; }/sub need_encode {0}/" ./lib/MT/ObjectDriver/Driver/DBD/Legacy.pm
+
 if [ ! -f mt-config.cgi ]; then
   ./generate-mt-config.sh
 fi
