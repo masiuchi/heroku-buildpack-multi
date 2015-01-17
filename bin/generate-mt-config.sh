@@ -28,3 +28,14 @@ PIDFilePath /app/mt.pid
 
 TransparentProxyIPs 1
 _CONFIG_
+
+if [[ $SENDGRID_USERNAME && $SENDGRID_PASSWORD ]]; then
+  cat << _SENDGRID_ >> /app/mt-config.cgi
+
+MailTransfer smtp
+SMTPAuth ssl
+SMTPServer smtp.sendgrid.net
+SMTPUser $SENDGRID_USERNAME
+SMTPPassword $SENDGRID_PASSWORD
+_SENDGRID_
+fi

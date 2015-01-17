@@ -8,5 +8,9 @@ requires 'CGI::Emulate::PSGI';
 requires 'CGI::Compile';
 requires 'XMLRPC::Transport::HTTP::Plack';
 
+# SendGrid
+requires 'Net::SMTP::SSL';
+requires 'Authen::SASL';
+
 # Heroku.pack
 requires 'IO::All';
