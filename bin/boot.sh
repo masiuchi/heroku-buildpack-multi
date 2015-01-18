@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ $MT_ZIP_URL ]; then
-  curl -O $MT_ZIP_URL
+  curl -LO $MT_ZIP_URL
 
   zip=${MT_ZIP_URL##*/}
   if [ -f $zip ]; then
@@ -12,6 +12,9 @@ if [ $MT_ZIP_URL ]; then
   filename=${filename//_/.}
   if [ -d $filename ]; then
     cp -r $filename/* ./
+  elif [ -d movabletype-$filename ]
+    # For Movable Type repo on GitHub.
+    cp -r movabletype-$filename/* ./
   fi
 fi
 
