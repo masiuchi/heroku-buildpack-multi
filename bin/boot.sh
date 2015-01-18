@@ -12,7 +12,7 @@ if [ $MT_ZIP_URL ]; then
   filename=${filename//_/.}
   if [ -d $filename ]; then
     cp -r $filename/* ./
-  elif [ -d movabletype-$filename ]
+  elif [ -d movabletype-$filename ]; then
     # For Movable Type repo on GitHub.
     cp -r movabletype-$filename/* ./
   fi
