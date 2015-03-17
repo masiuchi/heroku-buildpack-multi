@@ -31,6 +31,7 @@ function export_env_dir() {
 
 echo "ENV_DIR"
 ls $ENV_DIR
+less $ENV_DIR/DATABASE_URL
 
 export_env_dir "$ENV_DIR" '^[A-Z_][A-Z0-9_]*$' '^(MT_ZIP_URL|DATABASE_URL|SENDGRID_USERNAME|SENDGRID_PASSWORD)$'
 
