@@ -49,7 +49,7 @@ mv $BUILD_DIR/mt.psgi $BUILD_DIR/app.psgi
 if [[ ! -e $BUILD_DIR/mt-config.cgi ]]; then
    echo "Generating mt-config.cgi." | indent
    chmod -f +x $BP_DIR/bin/generate-mt-config.sh || true
-   $BP_DIR/bin/generate-mt-config.sh $BUILD_DIR
+   $BP_DIR/bin/generate-mt-config.sh >> $BUILD_DIR/mt-config.cgi
 fi
 
 # Create html directory and copy index.html.

@@ -10,7 +10,7 @@ if [[ "$DATABASE_URL" =~ ^postgres://([^:@/]+):([^:@/]+)@([^:@/]+):([^:@/]+)/([^
   db=${BASH_REMATCH[5]}
 fi
 
-cat << _CONFIG_ > $BUILD_DIR/mt-config.cgi
+cat << _CONFIG_
 CGIPath /mt/
 StaticWebPath /mt-static
 StaticFilePath /app/mt-static
@@ -32,7 +32,7 @@ TransparentProxyIPs 1
 _CONFIG_
 
 if [[ $SENDGRID_USERNAME && $SENDGRID_PASSWORD ]]; then
-  cat << _SENDGRID_ >> /app/mt-config.cgi
+  cat << _SENDGRID_
 
 MailTransfer smtp
 SMTPAuth ssl
