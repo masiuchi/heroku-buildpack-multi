@@ -44,8 +44,10 @@ if [ ! -d $CACHE_DIR/local ]; then
 fi
 
 # Rename for heroku-buildpack-perl.
-echo "Renaming mt.psgi to app.psgi." | indent
-mv $BUILD_DIR/mt.psgi $BUILD_DIR/app.psgi
+if [[ -e $BUILD_DIR/mt.psgi && ! -e $BUILD_DIR/app.psgi ]]; then
+  echo "Renaming mt.psgi to app.psgi." | indent
+  mv $BUILD_DIR/mt.psgi $BUILD_DIR/app.psgi
+fi
 
 # Generate mt-config.cgi.
 if [[ ! -e $BUILD_DIR/mt-config.cgi ]]; then
@@ -59,7 +61,7 @@ if [[ ! -d $BUILD_DIR/html ]]; then
   echo "Creating html directory." | indent
   mkdir $BUILD_DIR/html
 fi
-if [[ -e $BUILD_DIR/index.html ]]; then
+if [[ -e $BUILD_DIR/index.html && ! -e $BUILD_DIR/html/index.html ]]; then
   echo "Copying and fixing index.html." | indent
   cp $BUILD_DIR/index.html $BUILD_DIR/html/
   sed -i -e "s/mt\.cgi/\/mt\/mt\.cgi/g" $BUILD_DIR/html/index.html
