@@ -37,13 +37,13 @@ export_env_dir "$ENV_DIR" '^[A-Z_][A-Z0-9_]*$' '^(MT_ZIP_URL|DATABASE_URL|SENDGR
 
 
 # Copy files.
-echo "- Copying files." | indent
+echo "Copying files." | indent
 cp -r $BP_DIR/conf/* $BUILD_DIR
 cp -r $BP_DIR/mt/* $BUILD_DIR
 
 # Extract CPAN modules.
 if [ ! -d $CACHE_DIR/local ]; then
-  echo "- Extrating CPAN modules." | indent
+  echo "Extrating CPAN modules." | indent
   mkdir -p $CACHE_DIR
   tar xzf $BP_DIR/perl/local.tar.gz -C $CACHE_DIR
 fi
@@ -53,7 +53,7 @@ mv $BUILD_DIR/mt.psgi $BUILD_DIR/app.psgi
 
 # Generate mt-config.cgi.
 if [[ ! -e $BUILD_DIR/mt-config.cgi ]]; then
-   echo "- Generating mt-config.cgi." | indent
+   echo "Generating mt-config.cgi." | indent
    chmod -f +x $BP_DIR/bin/generate-mt-config.sh || true
    $BP_DIR/bin/generate-mt-config.sh $BUILD_DIR
 fi
