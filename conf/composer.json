@@ -1,6 +1,6 @@
 {
   "require": {
-    "php": "~5.4.36",
+    "php": "~5.6.0",
     "ext-gd": "*",
     "ext-mbstring": "*" 
   }
