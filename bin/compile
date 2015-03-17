@@ -16,6 +16,7 @@ CACHE_DIR=$2
 ENV_DIR=$3
 
 # Export environmental variables.
+echo "Exporting environmental variables." | indent
 function export_env_dir() {
   env_dir=$1
   whitelist_regex=${2:-''}
@@ -43,6 +44,7 @@ if [ ! -d $CACHE_DIR/local ]; then
 fi
 
 # Rename for heroku-buildpack-perl.
+echo "Renaming mt.psgi to app.psgi." | indent
 mv $BUILD_DIR/mt.psgi $BUILD_DIR/app.psgi
 
 # Generate mt-config.cgi.
@@ -54,9 +56,11 @@ fi
 
 # Create html directory and copy index.html.
 if [[ ! -d $BUILD_DIR/html ]]; then
+  echo "Creating html directory." | indent
   mkdir $BUILD_DIR/html
 fi
 if [[ -e $BUILD_DIR/index.html ]]; then
+  echo "Copying and fixing index.html." | indent
   cp $BUILD_DIR/index.html $BUILD_DIR/html/
   sed -i -e "s/mt\.cgi/\/mt\/mt\.cgi/g" $BUILD_DIR/html/index.html
   sed -i -e "s/mt-check\.cgi/\/mt\/mt-check\.cgi/g" $BUILD_DIR/html/index.html
@@ -64,5 +68,6 @@ fi
 
 # Fix driver.
 if [[ -e $BUILD_DIR/lib/MT/ObjectDriver/Driver/DBD/Legacy.pm ]]; then
+  echo "Fixing driver." | indent
   sed -i -e "s/sub need_encode { 1; }/sub need_encode {0}/" $BUILD_DIR/lib/MT/ObjectDriver/Driver/DBD/Legacy.pm
 fi
