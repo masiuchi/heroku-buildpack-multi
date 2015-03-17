@@ -51,5 +51,6 @@ mv $BUILD_DIR/mt.psgi $BUILD_DIR/app.psgi
 # Generate mt-config.cgi.
 if [[ ! -e $BUILD_DIR/mt-config.cgi ]]; then
    echo "-----> Generating mt-config.cgi."
+   chmod -f +x $BP_DIR/bin/generate-mt-config.sh || true
    $BP_DIR/bin/generate-mt-config.sh
 fi
