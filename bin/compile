@@ -28,11 +28,7 @@ function export_env_dir() {
     done
   fi
 }
-
-export_env_dir "$ENV_DIR" '^[A-Z_][A-Z0-9_]*$' '^(MT_ZIP_URL|DATABASE_URL|SENDGRID_USERNAME|SENDGRID_PASSWORD)$'
-
-echo "ENV_DIR"
-export
+export_env_dir "$ENV_DIR" '^[A-Z_][A-Z0-9_]*$' '^(HOME|PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH|LD_LIBRARY_PATH|STACK|S3_URL|RTVS_URL|REQUEST_ID)$'
 
 # Copy files.
 echo "Copying files." | indent
