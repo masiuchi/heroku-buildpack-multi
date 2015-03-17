@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+BUILD_DIR=$1
+
 if [[ "$DATABASE_URL" =~ ^postgres://([^:@/]+):([^:@/]+)@([^:@/]+):([^:@/]+)/([^:@/]+)$ ]]; then
   dbuser=${BASH_REMATCH[1]}
   dbpass=${BASH_REMATCH[2]}
@@ -8,7 +10,7 @@ if [[ "$DATABASE_URL" =~ ^postgres://([^:@/]+):([^:@/]+)@([^:@/]+):([^:@/]+)/([^
   db=${BASH_REMATCH[5]}
 fi
 
-cat << _CONFIG_ > /app/mt-config.cgi
+cat << _CONFIG_ > $BUILD_DIR/mt-config.cgi
 CGIPath /mt/
 StaticWebPath /mt-static
 StaticFilePath /app/mt-static
