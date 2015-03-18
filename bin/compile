@@ -78,6 +78,7 @@ fi
 
 # Add SendGrid settings to mt-config.cgi.
 if [[ $SENDGRID_USERNAME && $SENDGRID_PASSWORD ]]; then
+  chmod -f +x $BP_DIR/bin/add-sendgrid-settings.sh || true
   $BP_DIR/bin/add-sendgrid-settings.sh >> $BUILD_DIR/mt-config.cgi
 fi
 
