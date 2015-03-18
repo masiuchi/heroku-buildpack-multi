@@ -97,3 +97,5 @@ if [[ -e $BUILD_DIR/lib/MT/ObjectDriver/Driver/DBD/Legacy.pm ]]; then
   echo "Fixing driver." | indent
   sed -i -e "s/sub need_encode { 1; }/sub need_encode {0}/" $BUILD_DIR/lib/MT/ObjectDriver/Driver/DBD/Legacy.pm
 fi
+
+echo
