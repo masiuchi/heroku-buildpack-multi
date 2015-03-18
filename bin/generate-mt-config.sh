@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-BUILD_DIR=$1
-
 if [[ "$DATABASE_URL" =~ ^postgres://([^:@/]+):([^:@/]+)@([^:@/]+):([^:@/]+)/([^:@/]+)$ ]]; then
   dbuser=${BASH_REMATCH[1]}
   dbpass=${BASH_REMATCH[2]}
@@ -30,14 +28,3 @@ PIDFilePath /app/mt.pid
 
 TransparentProxyIPs 1
 _CONFIG_
-
-if [[ $SENDGRID_USERNAME && $SENDGRID_PASSWORD ]]; then
-  cat << _SENDGRID_
-
-MailTransfer smtp
-SMTPAuth ssl
-SMTPServer smtp.sendgrid.net
-SMTPUser $SENDGRID_USERNAME
-SMTPPassword $SENDGRID_PASSWORD
-_SENDGRID_
-fi
