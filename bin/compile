@@ -54,6 +54,7 @@ fi
 echo "Copying files." | indent
 cp -r $BP_DIR/conf/* $BUILD_DIR
 cp -r $BP_DIR/mt/* $BUILD_DIR
+cp $BP_DIR/bin/boot.sh $BUILD_DIR
 
 # Extract CPAN modules.
 if [ ! -d $CACHE_DIR/local ]; then
