@@ -31,6 +31,25 @@ function export_env_dir() {
 }
 export_env_dir "$ENV_DIR" '^[A-Z_][A-Z0-9_]*$' '^(HOME|PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH|LD_LIBRARY_PATH|STACK|S3_URL|RTVS_URL|REQUEST_ID)$'
 
+# Retrive MT.
+if [ $MT_ZIP_URL ]; then
+  curl -LO $MT_ZIP_URL
+
+  zip=${MT_ZIP_URL##*/}
+  if [ -f $zip ]; then
+    unzip $zip
+  fi
+
+  filename=${zip%.*}
+  filename=${filename//_/.}
+  if [ -d $filename ]; then
+    cp -r $filename/* $BP_DIR/
+  elif [ -d movabletype-$filename ]; then
+    # For Movable Type repo on GitHub.
+    cp -r movabletype-$filename/* $BP_DIR/
+  fi
+fi
+
 # Copy files.
 echo "Copying files." | indent
 cp -r $BP_DIR/conf/* $BUILD_DIR
